@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'accountapp',
-
 ]
 
 MIDDLEWARE = [
@@ -144,4 +143,4 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:login:hello_world')
-LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login:login')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
