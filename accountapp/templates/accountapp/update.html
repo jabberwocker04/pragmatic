@@ -9,7 +9,7 @@
                 Change Info
             </h4>
         </div>
-        <form action="{% url 'accountapp:update' pk=user.pk %}" method="post"> <!--accountapp 내의 create라는 라우트로 연결-->
+        <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="post"> <!--accountapp 내의 create라는 라우트로 연결-->
         {% csrf_token %}
         {% bootstrap_form form %}
             <!-- {{ form }} form을 적은대로 적용됨           -->
