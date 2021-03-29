@@ -11,32 +11,8 @@ from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import HelloWorld
 
 has_ownership = [account_ownership_required, login_required]
-
-@login_required
-def hello_world(request):
-
-    if request.user.is_authenticated:
-        if request.method == "POST":
-
-            temp = request.POST.get('hello_world_input')
-
-            new_hello_world = HelloWorld()
-            new_hello_world.text = temp
-            new_hello_world.save()
-            # db에 데이터를 저장
-
-            #list에 objects를 담아서 보내줄 예정임
-
-            return HttpResponseRedirect(reverse('accountapp:hello_world')) # reverse는 함수형 view에서 사용한다.
-        else:
-            hello_world_list = HelloWorld.objects.all() #들여쓰기 오류가 낫었음 파이썬에서는 들여쓰기가 정확히 지켜져야 함
-
-            return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
-    else:
-        return HttpResponseRedirect(reverse('accountapp:login'))
 
 
 class AccountCreateView(CreateView):
